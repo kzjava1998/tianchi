@@ -1,0 +1,2 @@
+# 安装拓展包
+pip install some_package --user
