@@ -1,0 +1,15 @@
+1、提升模型精度的思路:
+1)使⽤更强的数据增强⽅法；
+2) 模型调参，如学习率、图像尺⼨等；
+3) 调整优化算法、损失函数，考虑正则⽅法；
+4) 更换更强模型，如UNet、DeepLab等；
+5) 考虑集成⽅法；
+2、如何加载本地模型参数
+方法1)
+# 先初始化模型，再读取模型参数（适⽤于⽂件只保存了参数）
+ model = TheModelClass(*args, **kwargs)
+ model.load_state_dict(torch.load(PATH, map_location=device))
+#map_location为切换设备
+方法2)
+# 直接读取模型（适⽤于⽂件既保存了模型结构以及参数）
+model = torch.load(PATH, map_location=device)
